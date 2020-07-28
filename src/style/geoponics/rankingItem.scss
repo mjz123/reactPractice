@@ -1,0 +1,89 @@
+.wrap {
+  padding-bottom: pxToRem(60);
+}
+ul {
+  li:nth-of-type(1) {
+    background: #FAFAFA;
+  }
+  li:nth-of-type(2) {
+    >span:first-of-type {
+      //background-image: url("../../../assets/geoponics/first.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  li:nth-of-type(3) {
+    >span:first-of-type {
+      //background-image: url("../../../assets/geoponics/second.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  li:nth-of-type(4) {
+    >span:first-of-type {
+      //background-image: url("../../../assets/geoponics/third.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  .ranking, .ranking-title {
+    padding: 0 pxToRem(30) 0 pxToRem(20);
+    color: #333;
+    >span {
+      display: inline-block;
+      width: 24%;
+      font-size: pxToRem(28);
+      float: left;
+      text-align: center;
+    }
+    >span:nth-of-type(1) {
+      width: 12%;
+      min-height: pxToRem(35);
+    }
+    >span:nth-of-type(2) {
+      width: 14%;
+    }
+    >span:last-of-type {
+      text-align: right;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:2;
+      width: pxToRem(170);
+      .department{
+
+      }
+    }
+  }
+  .ranking-title {
+    height: pxToRem(70);
+    >span {
+      font-size: pxToRem(24);
+      color: #999;
+      line-height: pxToRem(70);
+    }
+  }
+  .ranking {
+    min-height: pxToRem(110);
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    >span:last-of-type {
+      font-size: pxToRem(24);
+    }
+  }
+}
+.iconsort {
+  font-size: pxToRem(22);
+  position: relative;
+  left: - pxToRem(18);
+  float: right;
+}
+.red {
+  color: #F03E3A!important;
+}
