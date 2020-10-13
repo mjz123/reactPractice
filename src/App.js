@@ -1,37 +1,34 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, {Component, Suspense} from 'react';
 import "lib-flexible"
-import './style/geoponics/index.scss'
+import axios from 'axios';
 import ReactDOM from "react-dom";
-import Pic from './assets/img/header.png';
-import RankingItem from "./components/geoponics/rankingItem";
+import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
+import {router} from "./router/index";
+// import Geoponics from './page/geoponics'
+// import Test from "./page/test";
 
 
 class App extends Component {
     render() {
         return (
-            <div className="mainBox">
-                <div className='topDiv'>
-                    <img className='topPic' src={Pic} alt=''/>
-                </div>
-
-                <div className="content">
-                    <div className="cList">
-                         - 回流排行榜 -
-                    </div>
-
-                    <RankingItem></RankingItem>
-                </div>
-            </div>
-        );
+            <Router>
+                <Suspense fallback=''>
+                    {
+                        router.map((item, index) => {
+                            return (
+                                <Route path={item.path} key={index} render={props => (
+                                    <item.component {...props} routes={item.children} />
+                                )}/>
+                            )
+                        })
+                    }
+                    <Redirect to="/geoponics" from="/" exact/>
+                </Suspense>
+            </Router>
+        )
     }
 }
 
-App.propTypes = {};
 
 export default App;
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);

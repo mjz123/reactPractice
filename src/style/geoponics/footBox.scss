@@ -1,0 +1,46 @@
+.footBox {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFF;
+  box-shadow: 0 -2px 15px 0 rgba(240,62,58,0.35);
+  height: 100px;
+  color: #333;
+
+  .footBox-lf {
+    width: 20%;
+    text-align: center;
+    color: #999;
+    font-size: 28px;
+  }
+  .footBox-md {
+    font-size: 24px;
+    width: 45%;
+    padding-left: 10px;
+  }
+  .footBox-rg {
+    button {
+      width: 252px;
+      height: 100px;
+      background:linear-gradient(41deg,rgba(255,62,65,1) 0%,rgba(255,80,80,1) 100%);
+      border: 0;
+      font-size: 32px;
+      color: #fff;
+    }
+  }
+  .me {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    width: 45px;
+    height: 32px;
+    background:linear-gradient(41deg,rgba(255,62,65,1) 0%,rgba(255,80,80,1) 100%);
+    border-radius: 0 0 10px 0;
+  }
+}

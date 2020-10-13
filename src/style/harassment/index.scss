@@ -1,0 +1,33 @@
+.harass-tool {
+  float: right;
+  width: 385px;
+  height: 54px;
+  border-radius: 28px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  >div{
+    box-sizing: border-box;
+    &:nth-of-type(1){
+      height: 100%;
+      border-right:1px solid #ddd;
+    }
+    &:nth-of-type(3){
+      height: 100%;
+      border-left:1px solid #ddd;
+    }
+    float: left;
+    width: 33.3333%;
+    text-align: center;
+    line-height: 55px;
+    font-size:24px;
+    color:#666666;
+    &.active{
+      border: none;
+      background: #3296fa;
+      color: #fff;
+    }
+    &.activeX{
+      background:#9ECEFD;
+    }
+  }
+}
