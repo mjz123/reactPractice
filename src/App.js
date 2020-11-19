@@ -4,6 +4,7 @@ import axios from 'axios';
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 import {router} from "./router/index";
+
 // import Geoponics from './page/geoponics'
 // import Test from "./page/test";
 
@@ -22,7 +23,7 @@ class App extends Component {
                             )
                         })
                     }
-                    <Redirect to="/geoponics" from="/" exact/>
+                    <Redirect to="/login" from="/" exact/>
                 </Suspense>
             </Router>
         )
