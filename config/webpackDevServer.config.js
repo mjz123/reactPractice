@@ -84,8 +84,8 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy:{
-      '/zyt/emp':{
-        target:'http://www.fastmock.site/mock/dce0c3ffda80f506af68651d8df5648a',
+      '/emp':{
+        target:'http://www.fastmock.site/mock/dce0c3ffda80f506af68651d8df5648a/zyt',
         changeOrigin:true,
         pathRewrite:{
           // '/zyt/emp':''

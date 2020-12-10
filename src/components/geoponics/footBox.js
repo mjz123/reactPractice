@@ -16,7 +16,6 @@ class FootBox extends Component {
         this.setState({
             targetCustomerCount: await getTargetCustomerCount(1)
         })
-
     }
 
     render() {

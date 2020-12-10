@@ -6,7 +6,7 @@ import { GET } from '../assets/axios/index'
  */
 export const getBackflowRank = (sortType) => {
     return GET(
-        `/zyt/emp/backflow/v1/backflowrank`,
+        `/emp/backflow/v1/backflowrank`,
         {
             sortType
         }
@@ -19,7 +19,7 @@ export const getBackflowRank = (sortType) => {
  */
 export const getTargetCustomerCount = (sourceType) => {
     return GET(
-        `/zyt/emp/backflow/v1/targetCustomerCount`,
+        `/emp/backflow/v1/targetCustomerCount`,
         {
             sourceType
         }
