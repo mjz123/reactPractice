@@ -5,12 +5,13 @@ import { GET } from '../assets/axios/index'
  * @returns {*|Promise<undefined|*>}
  */
 export const getBackflowRank = (sortType) => {
-    return GET(
-        `/emp/backflow/v1/backflowrank`,
-        {
+    return GET({
+        url: `/emp/backflow/v1/backflowrank`,
+        params: {
             sortType
-        }
-    )
+        },
+        // hideLoading: true
+    })
 };
 
 /**
@@ -18,10 +19,11 @@ export const getBackflowRank = (sortType) => {
  * @returns {*|Promise<undefined|*>}
  */
 export const getTargetCustomerCount = (sourceType) => {
-    return GET(
-        `/emp/backflow/v1/targetCustomerCount`,
-        {
+    return GET({
+        url: `/emp/backflow/v1/targetCustomerCount`,
+        params: {
             sourceType
-        }
-    )
+        },
+        // hideLoading: true
+    })
 };
