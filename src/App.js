@@ -1,7 +1,4 @@
 import React, {Component, Suspense} from 'react';
-import "lib-flexible"
-import axios from 'axios';
-import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
 import {router} from "./router/index";
 import './App.css';

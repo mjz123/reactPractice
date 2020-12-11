@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Input, Button } from 'antd';
 import '../style/login/index.scss'
+import {login} from "../api/login";
 
 class Login extends Component {
     constructor() {
@@ -14,6 +15,16 @@ class Login extends Component {
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
+        })
+    }
+
+    login = () => {
+        React.$GET({
+            url:'/login',
+            params: {
+                loginName: this.state.loginName,
+                pwd: this.state.pwd,
+            }
         })
     }
 
@@ -32,7 +43,7 @@ class Login extends Component {
                     name="pwd"
                     value={this.state.pwd}
                     onChange={this.handleChange}/>
-                <Button>登录</Button>
+                <Button onClick={this.login}>登录</Button>
             </div>
         );
     }
