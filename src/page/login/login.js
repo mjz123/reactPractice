@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Input, Button } from 'antd';
-import '../style/login/index.scss'
-import {login} from "../api/login";
+import '../../style/login/index.scss'
+import {login} from "../../api/login";
 
 class Login extends Component {
     constructor() {
@@ -18,14 +18,16 @@ class Login extends Component {
         })
     }
 
-    login = () => {
-        React.$GET({
-            url:'/login',
-            params: {
-                loginName: this.state.loginName,
-                pwd: this.state.pwd,
-            }
-        })
+    login = async () => {
+
+        this.props.history.push('/geoponics');
+
+        // await login({
+        //     userName: this.state.loginName,
+        //     pwd: this.state.pwd
+        // })
+        // this.props.history.push('/geoponics');
+
     }
 
     render() {

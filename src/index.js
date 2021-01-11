@@ -4,9 +4,9 @@ import './index.css';
 // import App from './router/index'
 import App from './App'
 import * as serviceWorker from './serviceWorker';
-import {GET} from "./assets/axios";
-
-React.$GET = GET
+// import {GET} from "./assets/axios";
+//
+// React.$GET = GET
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 

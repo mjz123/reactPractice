@@ -3,7 +3,7 @@ import React, { lazy } from 'react';
 export const router = [
     {
         path: "/login",
-        component: lazy(()=>import('../page/login'))
+        component: lazy(()=>import('../page/login/login'))
     },
     {
         path: "/geoponics",
