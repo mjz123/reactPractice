@@ -9,9 +9,16 @@ export const router = [
         path: "/geoponics",
         component: lazy(()=>import('../page/geoponics'))
     },
-    // {
-    //     path: "/harassment",
-    //     component: lazy(()=>import('../page/harassment'))
-    // }
+    {
+        path: "/index",
+        component: lazy(()=>import('../page/index')),
+        children: [{
+            path: "/index/home",
+            component: lazy(()=>import('../page/index/home')),
+        },{
+            path: "/customer",
+            component: lazy(()=>import('../page/index/customer')),
+        }]
+    }
 ]
 

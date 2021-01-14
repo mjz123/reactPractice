@@ -16,7 +16,7 @@ class App extends Component {
                         {
                             router.map((item, index) => {
                                 return (
-                                    <Route exact path={item.path} key={index} render={props => (
+                                    <Route path={item.path} key={index} render={props => (
                                         <item.component {...props} routes={item.children} />
                                     )}/>
                                 )
