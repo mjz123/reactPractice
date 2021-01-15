@@ -20,7 +20,7 @@ class Login extends Component {
 
     login = async () => {
 
-        this.props.history.push('/index');
+        this.props.history.push('/index/home');
 
         // await login({
         //     userName: this.state.loginName,

@@ -16,7 +16,7 @@ export const router = [
             path: "/index/home",
             component: lazy(()=>import('../page/index/home')),
         },{
-            path: "/customer",
+            path: "/index/customer",
             component: lazy(()=>import('../page/index/customer')),
         }]
     }

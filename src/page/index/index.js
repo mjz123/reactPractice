@@ -14,7 +14,7 @@ class Index extends Component {
 
     render() {
         return (
-            <div>
+            <div className="wrap">
                 <Router>
                     <Suspense fallback=''>
                         <Switch>
@@ -34,7 +34,9 @@ class Index extends Component {
                             <li>
                                 <Link to="/index/home">主页</Link>
                             </li>
-                            <li>客户</li>
+                            <li>
+                                <Link to="/index/customer">客户</Link>
+                            </li>
                             <li>产品</li>
                             <li>我的</li>
                         </ul>
