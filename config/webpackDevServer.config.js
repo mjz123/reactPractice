@@ -88,7 +88,7 @@ module.exports = function(proxy, allowedHost) {
         target:'https://www.fastmock.site/mock/dce0c3ffda80f506af68651d8df5648a/zyt',
         changeOrigin:true,
         pathRewrite:{
-          // '/zyt/emp':''
+          '/emp':''
         }
       }
     },

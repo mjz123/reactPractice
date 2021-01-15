@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Redirect, Switch} from "react-router-do
 import {router} from "./router/index";
 import './App.css';
 
+import "lib-flexible"
+
 // import Geoponics from './page/geoponics'
 // import Test from "./page/test";
 

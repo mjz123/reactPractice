@@ -1,15 +1,13 @@
 import { GET } from '../assets/axios/index'
 
 /**
- * 登录
+ * 我的绩效
  * @returns {*|Promise<undefined|*>}
  */
-export const login = ({userName, pwd}) => {
+export const findMonthAverageNetIncome = () => {
     return GET({
-        url: `/emp/login`,
+        url: `/emp/manager/performance/findMonthAverageNetIncome`,
         params: {
-            userName,
-            pwd
         },
     })
 };

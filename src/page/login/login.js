@@ -19,14 +19,11 @@ class Login extends Component {
     }
 
     login = async () => {
-
+        await login({
+            userName: this.state.loginName,
+            pwd: this.state.pwd
+        })
         this.props.history.push('/index/home');
-
-        // await login({
-        //     userName: this.state.loginName,
-        //     pwd: this.state.pwd
-        // })
-        // this.props.history.push('/geoponics');
 
     }
 
