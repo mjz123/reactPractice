@@ -2,7 +2,7 @@ import React, {Component, Suspense} from 'react';
 // import PropTypes from 'prop-types';
 import '../../style/index/index.scss'
 import {BrowserRouter as Router, Redirect, Route, Switch, Link} from "react-router-dom";
-import {router} from "../../router";
+// import {router} from "../../router";
 
 class Index extends Component {
     constructor(props) {
@@ -14,10 +14,10 @@ class Index extends Component {
 
     render() {
         return (
-            <div className="wrap">
-                <Router>
-                    <Suspense fallback=''>
-                        <Switch>
+            <div className="wrap" key={this.props.location.key}>
+                {/*<Router>*/}
+                {/*    <Suspense fallback=''>*/}
+                {/*        <Switch>*/}
                             {
                                 this.props.routes.map((item, index) => {
                                     return (
@@ -27,8 +27,7 @@ class Index extends Component {
                                     )
                                 })
                             }
-                            <Redirect exact from="/" to="/login"/>
-                        </Switch>
+                        {/*</Switch>*/}
 
                         <ul className="bottomBar border1pxBgTop">
                             <li>
@@ -40,8 +39,8 @@ class Index extends Component {
                             <li>产品</li>
                             <li>我的</li>
                         </ul>
-                    </Suspense>
-                </Router>
+                    {/*</Suspense>*/}
+                {/*</Router>*/}
 
             </div>
         );

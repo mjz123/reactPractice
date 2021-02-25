@@ -19,6 +19,10 @@ export const router = [
             path: "/index/customer",
             component: lazy(()=>import('../page/index/customer')),
         }]
-    }
+    },
+    {
+        path: "/KPM",
+        component: lazy(()=>import('../page/KPM'))
+    },
 ]
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MyAchievements from '../index/components/home/myAchievements'
 import '../../style/index/home.scss'
+import {Link} from 'react-router-dom'
 
 class Home extends Component {
     render() {
@@ -11,7 +12,6 @@ class Home extends Component {
         },{
             name: '打新日历'
         }]
-
 
         return (
             <div>
@@ -25,6 +25,11 @@ class Home extends Component {
                         }
                     </ul>
 
+                </div>
+
+                <div>
+                    KPM
+                    <div><Link to="/KPM">更多</Link></div>
                 </div>
 
                 <MyAchievements/>
