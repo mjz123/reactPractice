@@ -1,21 +1,30 @@
 import React, {Component} from 'react';
 import '../../style/KPM/index.scss'
-
+import { DatePicker } from 'antd';
+import moment from 'moment'
 
 
 class Index extends Component {
     constructor() {
         super();
         this.state={
-            completeStatus: '0'
+            completeStatus: '0',
+            startDate: moment().subtract('days', 6),
+            endDate: moment(),
         }
     }
 
     handTab = (type) => {
         this.setState({
-            completeStatus: type
+            completeStatus: type,
+
         })
     }
+
+    onDateChange = (date, dateString) => {
+        console.log(date, dateString);
+    }
+
 
     render() {
         const tabList = [{
@@ -29,7 +38,11 @@ class Index extends Component {
             type: '2'
         }]
 
+        const { RangePicker } = DatePicker;
+
+
         return (
+
             <div>
                 <div className="title">KPM</div>
                 <div className="content">
@@ -37,17 +50,17 @@ class Index extends Component {
                         {
                             tabList.map(item => {
                                 return (
-                                    <li onClick={(e) => this.handTab(item.type, e)} className={`${this.state.completeStatus === item.type&&'active'}`}>
+                                    <li onClick={(e) => this.handTab(item.type, e)} className={`${this.state.completeStatus === item.type&&'active'}`} key={item.type}>
                                         {item.name}
                                     </li>
                                 )
                             })
                         }
-
-                        {/*<li onClick={(e) => this.handTab('0', e)} className={`${this.state.completeStatus === '0'&&'active'}`}>全部</li>*/}
-                        {/*<li onClick={(e) => this.handTab('1', e)} className={`${this.state.completeStatus === '1'&&'active'}`}>待处理</li>*/}
-                        {/*<li>已完成</li>*/}
                     </ul>
+                </div>
+
+                <div>
+                    <RangePicker onChange={this.onDateChange} defaultValue={[this.state.startDate, this.state.endDate]}/>
                 </div>
 
             </div>
