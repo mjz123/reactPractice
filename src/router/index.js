@@ -18,6 +18,9 @@ export const router = [
         },{
             path: "/index/customer",
             component: lazy(()=>import('../page/index/customer')),
+        },{
+            path: "/index/product",
+            component: lazy(()=>import('../page/index/product')),
         }]
     },
     {

@@ -20,24 +20,26 @@ class Index extends Component {
     handTab = (type) => {
         this.setState({
             completeStatus: type,
+        },() => {
+            this.init()
         })
     }
 
     onDateChange = (date, dateString) => {
-        console.log(date, dateString)
         this.setState({
             startDate: dateString[0],
             endDate: dateString[1]
+        },() => {
+            this.init()
         })
-        // this.init()
     }
 
     init = async () => {
 
         let res = await getKPMList({
             completeStatus: this.state.completeStatus,
-            start: this.state.startDate,
-            end: this.state.endDate
+            start: moment(this.state.startDate).format('YYYY-MM-DD'),
+            end: moment(this.state.endDate).format('YYYY-MM-DD')
         })
 
         this.setState({
@@ -82,7 +84,7 @@ class Index extends Component {
         }]
 
         const { RangePicker } = DatePicker;
-
+        // const dateFormat = 'YYYY/MM/DD';
 
         return (
 

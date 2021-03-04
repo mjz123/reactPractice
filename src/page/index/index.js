@@ -1,7 +1,7 @@
-import React, {Component, Suspense} from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import '../../style/index/index.scss'
-import {BrowserRouter as Router, Redirect, Route, Switch, Link} from "react-router-dom";
+import {Route, Link} from "react-router-dom";
 // import {router} from "../../router";
 
 class Index extends Component {
@@ -36,7 +36,9 @@ class Index extends Component {
                             <li>
                                 <Link to="/index/customer">客户</Link>
                             </li>
-                            <li>产品</li>
+                            <li>
+                                <Link to="/index/product">产品</Link>
+                            </li>
                             <li>我的</li>
                         </ul>
                     {/*</Suspense>*/}
