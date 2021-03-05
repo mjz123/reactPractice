@@ -31,15 +31,17 @@ class Index extends Component {
 
                         <ul className="bottomBar border1pxBgTop">
                             <li>
-                                <Link to="/index/home">主页</Link>
+                                <Link to="/index/home" className={`${this.props.location.pathname.includes('home') && 'redTextColor'}`}>主页</Link>
                             </li>
                             <li>
-                                <Link to="/index/customer">客户</Link>
+                                <Link to="/index/customer" className={`${this.props.location.pathname.includes('customer') && 'redTextColor'}`}>客户</Link>
                             </li>
                             <li>
-                                <Link to="/index/product">产品</Link>
+                                <Link to="/index/product" className={`${this.props.location.pathname.includes('product') && 'redTextColor'}`}>产品</Link>
                             </li>
-                            <li>我的</li>
+                            <li>
+                                <Link to="/index/customer" className={`${this.props.location.pathname.includes('customer') && 'redTextColor'}`}>我的</Link>
+                            </li>
                         </ul>
                     {/*</Suspense>*/}
                 {/*</Router>*/}

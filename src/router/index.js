@@ -27,5 +27,9 @@ export const router = [
         path: "/KPM",
         component: lazy(()=>import('../page/KPM'))
     },
+    {
+        path: "/financeCalendar",
+        component: lazy(()=>import('../page/financeCalendar'))
+    },
 ]
 
