@@ -11,7 +11,8 @@ class ProductCalendar extends Component {
     constructor(props){
         super(props);
         this.state = {
-            weekList: []
+            weekList: [],
+            selectedDay: moment().format('YYYY-MM-DD')
         }
     }
 
@@ -61,6 +62,12 @@ class ProductCalendar extends Component {
         })
     };
 
+    handleClick = (date) => {
+        this.setState({
+            selectedDay: date
+        })
+    };
+
     render() {
         const week = ['日', '一', '二', '三', '四', '五', '六']
 
@@ -68,15 +75,19 @@ class ProductCalendar extends Component {
             <div className="dailyWrap">
                 <div className="date">
                     <span
-                        className="date" >2021年 03月</span>
-                    <span style={{'paddingLeft': '.35rem'}}>第10周</span>
+                        className="date" >{this.state.weekList.length&&moment(this.state.weekList[0].date).format('YYYY年MM月')}</span>
+                    <span style={{'paddingLeft': '.35rem'}}>第{this.state.weekList.length&&moment(this.state.weekList[0].date).week()}周</span>
                 </div>
                 <div className="content">
                     <LeftOutlined className="iconfanhui" onClick={this.prevDate}/>
                     <ul className="weekDay">
                         {this.state.weekList.map(item => {
                             return (
-                                <li key={item.day}>{item.day}</li>
+                                <li key={item.day}
+                                    onClick={() => this.handleClick(item.date)}
+                                    className={`${item.date === moment().format('YYYY-MM-DD') ? 'current' : ''} ${item.date === this.state.selectedDay && 'active'}`}>
+                                    {item.day}
+                                </li>
                             )
                         })}
                     </ul>
