@@ -21,6 +21,7 @@ class Product extends Component {
             <div>
                 <div>今日有只首发{this.state.fundNum}基金</div>
 
+                {/*history二级路由向一级路由跳转添加*/}
                 <FinanceCalendar toParent={this.setFundNum} history={this.props.history}/>
             </div>
         );

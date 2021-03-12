@@ -28,8 +28,12 @@ export const router = [
         component: lazy(()=>import('../page/KPM'))
     },
     {
-        path: "/financeCalendar",
+        path: "/financeCalendar/index",
         component: lazy(()=>import('../page/financeCalendar'))
+    },
+    {
+        path: "/financeCalendar/search",
+        component: lazy(()=>import('../page/financeCalendar/search'))
     },
 ]
 

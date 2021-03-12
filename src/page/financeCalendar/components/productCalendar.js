@@ -66,6 +66,8 @@ class ProductCalendar extends Component {
         this.setState({
             selectedDay: date
         })
+
+        this.props.toParent(date)
     };
 
     render() {
@@ -105,6 +107,8 @@ class ProductCalendar extends Component {
     }
 }
 
-ProductCalendar.propTypes = {};
+ProductCalendar.propTypes = {
+    toParent: PropTypes.func,
+};
 
 export default ProductCalendar;

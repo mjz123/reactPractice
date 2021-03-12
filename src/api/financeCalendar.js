@@ -14,3 +14,32 @@ export const getProductsStatistics = () => {
         },
     })
 };
+
+
+/**
+ * 理财日历产品
+ * params date 日期
+ * @returns {*|Promise<undefined|*>}
+ */
+export const getProducts = (date) => {
+    return GET({
+        url: `/emp/products`,
+        params: {
+            date
+        },
+    })
+};
+
+/**
+ * 理财日历产品搜索
+ * params productCode 产品代码
+ * @returns {*|Promise<undefined|*>}
+ */
+export const getProductsClassifications = (productCode) => {
+    return GET({
+        url: `/emp/scrm/api/products/classifications`,
+        params: {
+            productCode
+        },
+    })
+};

@@ -12,7 +12,7 @@ class FinanceCalendar extends Component {
     }
 
     linkTo = () => {
-        this.props.history.push('/financeCalendar')
+        this.props.history.push('/financeCalendar/index')
     }
 
     async componentDidMount() {
