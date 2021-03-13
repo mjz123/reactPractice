@@ -35,5 +35,9 @@ export const router = [
         path: "/financeCalendar/search",
         component: lazy(()=>import('../page/financeCalendar/search'))
     },
+    {
+        path: "/reduxStudy",
+        component: lazy(()=>import('../page/reduxStudy'))
+    },
 ]
 
