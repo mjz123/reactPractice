@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css'
 import { Input , Button , List } from 'antd'
 import store from "../store";
-import {changeInputActions, addItemActions, deleteItemActions} from "../store/action";
+import {changeInputActions, addItemActions, deleteItemActions, getReduxListActions} from "../store/action";
+import {getReduxList} from "../api/reduxStudy";
 
 class TodoList extends Component {
     constructor(props){
@@ -32,6 +33,12 @@ class TodoList extends Component {
 
     storeChange = () => {
         this.setState(store.getState())
+    }
+
+    async componentDidMount() {
+        const data = await getReduxList()
+        const action = getReduxListActions(data)
+        store.dispatch(action)
     }
 
     render() {

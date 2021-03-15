@@ -1,28 +1,32 @@
+import {CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_REDUX_LIST} from "./actionTypes";
+
 const defaultStatus = {
     inputValue : '',
-    list:[
-        '早上4点起床，锻炼身体',
-        '中午下班游泳一小时'
-    ]
+    list:[]
 }
 export default (state = defaultStatus, action) => {
     switch (action.type) {
-        case 'changeInput':
+        case GET_REDUX_LIST:
+            return {
+                ...state,
+                ...action.data,
+            };
+        case CHANGE_INPUT:
             return {
                 ...state,
                 inputValue: action.value,
             };
-        case 'addItem':
+        case ADD_ITEM:
             return {
                 ...state,
                 inputValue : '',
                 list: [...state.list, action.value]
             };
-        case 'deleteItem':
+        case DELETE_ITEM:
             return {
                 ...state,
                 list: state.list.filter(item => {
-                    return item !== action.value
+                    return item !== action.item
                 })
             };
         default:
