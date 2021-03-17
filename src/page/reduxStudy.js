@@ -2,24 +2,25 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css'
 import { Input , Button , List } from 'antd'
 import store from "../store";
-import {changeInputActions, addItemActions, deleteItemActions, getReduxListActions} from "../store/action";
-import {getReduxList} from "../api/reduxStudy";
+import {changeInputActions, addItemActions, deleteItemActions, getTodoList} from "../store/action";
+// import {getReduxList} from "../api/reduxStudy";
+import {connect} from 'react-redux'
 
 class TodoList extends Component {
     constructor(props){
         super(props)
 
         this.state = {
-            ...store.getState()
+            // ...store.getState()
         }
 
-        store.subscribe(this.storeChange)
+        // store.subscribe(this.storeChange)
     }
 
-    handleChange = (e) => {
-        const action = changeInputActions(e.target.value)
-        store.dispatch(action)
-    }
+    // handleChange = (e) => {
+    //     const action = changeInputActions(e.target.value)
+    //     store.dispatch(action)
+    // }
 
     handleClick=()=>{
         const action = addItemActions(this.state.inputValue)
@@ -31,13 +32,13 @@ class TodoList extends Component {
         store.dispatch(action)
     }
 
-    storeChange = () => {
-        this.setState(store.getState())
-    }
+    // storeChange = () => {
+    //     this.setState(store.getState())
+    // }
 
     async componentDidMount() {
-        const data = await getReduxList()
-        const action = getReduxListActions(data)
+        // const data = await getReduxList()
+        const action = getTodoList()
         store.dispatch(action)
     }
 
@@ -46,12 +47,12 @@ class TodoList extends Component {
             <div style={{margin:'10px'}}>
                 <div>
                     <Input
-                        value={this.state.inputValue}
+                        value={this.props.inputValue}
                         style={{ width:'250px', marginRight:'10px'}}
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
                     <Button type="primary" onClick={this.handleClick}>增加</Button>
-                    {this.state.inputValue}
+                    {this.props.inputValue}
                 </div>
                 <div style={{margin:'10px',width:'300px'}}>
                     <List
@@ -66,4 +67,20 @@ class TodoList extends Component {
         );
     }
 }
-export default TodoList;
+
+const stateToProps = (state) => {
+    return {
+        inputValue: state.inputValue,
+    }
+}
+
+const dispatchToProps = (dispatch) => {
+    return {
+        handleChange(e) {
+            const action = changeInputActions(e.target.value)
+            dispatch(action)
+        }
+    }
+}
+
+export default connect(stateToProps, dispatchToProps)(TodoList);
