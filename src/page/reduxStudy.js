@@ -12,6 +12,7 @@ class TodoList extends Component {
 
         this.state = {
             // ...store.getState()
+            value: ''
         }
 
         // store.subscribe(this.storeChange)
@@ -22,10 +23,10 @@ class TodoList extends Component {
     //     store.dispatch(action)
     // }
 
-    handleClick=()=>{
-        const action = addItemActions(this.state.inputValue)
-        store.dispatch(action)
-    }
+    // handleClick=()=>{
+    //     const action = addItemActions(this.state.inputValue)
+    //     store.dispatch(action)
+    // }
 
     handleDeleteClick=(item)=>{
         const action = deleteItemActions(item)
@@ -43,22 +44,24 @@ class TodoList extends Component {
     }
 
     render() {
+        let {inputValue, handleClick, handleChange} = this.props
+
         return (
             <div style={{margin:'10px'}}>
                 <div>
                     <Input
-                        value={this.props.inputValue}
+                        value={inputValue}
                         style={{ width:'250px', marginRight:'10px'}}
-                        onChange={this.props.handleChange}
+                        onChange={handleChange}
                     />
-                    <Button type="primary" onClick={this.handleClick}>增加</Button>
+                    <Button type="primary" onClick={() => handleClick(inputValue)}>增加</Button>
                     {this.props.inputValue}
                 </div>
                 <div style={{margin:'10px',width:'300px'}}>
                     <List
                         bordered
                         //关键代码-----------start
-                        dataSource={this.state.list}
+                        dataSource={this.props.list}
                         //关键代码-----------end
                         renderItem={item=>(<List.Item onClick={()=>this.handleDeleteClick(item)}>{item}</List.Item>)}
                     />
@@ -71,15 +74,18 @@ class TodoList extends Component {
 const stateToProps = (state) => {
     return {
         inputValue: state.inputValue,
+        list: state.list
     }
 }
 
-const dispatchToProps = (dispatch) => {
+const dispatchToProps = (dispatch, ownProps) => {
+
     return {
         handleChange(e) {
             const action = changeInputActions(e.target.value)
             dispatch(action)
-        }
+        },
+        handleClick: (value) => dispatch(addItemActions(value))
     }
 }
 
